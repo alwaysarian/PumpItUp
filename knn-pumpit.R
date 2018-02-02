@@ -73,3 +73,17 @@ knn4_pred
 FINALSUB <-data.frame(test$id, knn4_pred)
 
 write.csv(file = "final1.csv", FINALSUB)
+
+
+
+## RF
+
+pd.rf = randomForest(status_group~., data=train, mtry = 4, importance = TRUE)
+
+pd.rf
+
+tree.pred= predict(pd.rf, test, type = "class")
+
+FINALSUB2 <-data.frame(test$X, tree.pred)
+
+write.csv(file = "finalrf.csv", FINALSUB2)
