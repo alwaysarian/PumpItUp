@@ -84,6 +84,6 @@ pd.rf
 
 tree.pred= predict(pd.rf, test, type = "class")
 
-FINALSUB2 <-data.frame(test$X, tree.pred)
+FINALSUB2 <-data.frame(test$id, tree.pred)
 
 write.csv(file = "finalrf.csv", FINALSUB2)
