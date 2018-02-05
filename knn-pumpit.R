@@ -51,10 +51,7 @@ test<- na.omit(test)
 
 
 
-
-
-
-
+#knn
 
 
 knn4 <- train(status_group ~ ., data = train, method = "knn",
@@ -87,3 +84,11 @@ tree.pred= predict(pd.rf, test, type = "class")
 FINALSUB2 <-data.frame(test$id, tree.pred)
 
 write.csv(file = "finalrf.csv", FINALSUB2)
+
+#Neural NEt
+
+dm.navg <- avNNet(train[c(2:22)], train$status_group, size = 2, rang
+                    = 0.5, decay = 5e-6, maxit = 200, repeats = 50)
+
+predict(dm.navg, dm[-
+                      inTrain,], type = "class")
